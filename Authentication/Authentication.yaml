@@ -1,20 +1,20 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: authentication-deployment
+  name: authenticationapinew-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Authentication
+      app: Authenticationapinew
   template:
     metadata:
       labels:
-        app: Authentication
+        app: Authenticationapinew
     spec:
       containers:
-      - name: authenticationrepos
-        image: anujretailbankingcr.azurecr.io/authenticationrepos:latest
+      - name: authenticationapinewrepos
+        image: anujretailbankingcr.azurecr.io/authenticationapinewrepos:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: authentication
+  name: authenticationapinew
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: Authentication
+    app: Authenticationapinew
